@@ -26,10 +26,3 @@ with napari.gui_qt():
     viewer.window.add_dock_widget(threshold_segmentation)
     # threshold()
 
-def update_slider(event):
-    # only trigger if update comes from first axis (optional)
-    if event.axis == 0:
-        ind_lambda = viewer.dims.indices[0]
-        stokes_1d.plot(None, ind_lambda, plot_stokes=False)
-
-viewer.dims.events.axis.connect(update_slider)
