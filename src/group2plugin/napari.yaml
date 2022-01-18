@@ -14,6 +14,9 @@ contributions:
     - id: Group2Plugin.threshold
       python_name: group2plugin.threshold.hooks:threshold_widget
       title: Simple Threshold
+    - id: Group2Plugin.nii_reader
+      python_name: group2plugin.readers.nii_reader:napari_get_reader
+      title: Open data with napari FooBar
   widgets:
     - command: Group2Plugin.make_qwidget
       display_name: Example QWidget
@@ -25,3 +28,7 @@ contributions:
     - command: Group2Plugin.threshold
       display_name: Simple Threshold
       autogenerate: false
+  readers:
+    - command: Group2Plugin.nii_reader
+      accepts_directories: false
+      filename_patterns: ['*.nii.gz']   
