@@ -3,15 +3,20 @@ import napari
 from napari.types import LabelsData, ImageData
 
 from skimage.io import imread
+import nibabel as nib
+import numpy as np
+
+def segmentation_function(img, annotation):
+    labels = annotation
+    return labels
 
 
-@magicgui(call_button='Run Threshold',
-          threshold={"widget_type": "Slider", "min": 0, "max": 255},
-)
-def threshold_segmentation(img: ImageData, threshold: int = 100) -> LabelsData:
-    """Threshold an image and return a mask."""
-    labels = (img >= threshold).astype(int)
-
+@magicgui(call_button='Run Segmentation')
+def segmentation_panel() -> LabelsData:
+    """Returns the output label."""
+    
+    labels = segmentation_function(img, viewer.layers[1].data)
+    
     return labels
 
 
@@ -20,6 +25,7 @@ with napari.gui_qt():
     
     viewer = napari.Viewer()
     viewer.add_image(img)
-
-    viewer.window.add_dock_widget(threshold_segmentation)
+    viewer.add_labels(np.zeros(img.shape, 'uint8'))
+    
+    viewer.window.add_dock_widget(segmentation_panel)
 
