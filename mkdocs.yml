@@ -1,0 +1,11 @@
+site_name: Group2Plugin
+site_description: Napari Interactive Segmentation
+site_author: Napari Hackers Group 2
+
+theme: readthedocs
+
+
+repo_url: https://github.com/bnorthan/Group2Plugin
+
+pages:
+- Home: index.md
