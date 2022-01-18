@@ -5,6 +5,8 @@ from napari.types import  ImageData, LabelsData, LayerDataTuple
 import numpy as np
 import nibabel as nib
 from skimage.io import imread
+import nibabel as nib
+import numpy as np
 
 from pyift.shortestpath import seed_competition
 
@@ -31,8 +33,6 @@ def segment_by_seed_competition(img: ImageData, markers: LabelsData) -> LayerDat
 
     return (labels, {'name': 'labels'}, 'labels')
 
-
-
 with napari.gui_qt():
     img = nib.load('./data/healthy_1.nii.gz').get_fdata().astype(np.int)
 
@@ -43,4 +43,3 @@ with napari.gui_qt():
     viewer.add_labels(blank, name='markers', opacity=0.75)
 
     viewer.window.add_dock_widget(segment_by_seed_competition)
-
