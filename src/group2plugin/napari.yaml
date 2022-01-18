@@ -17,6 +17,9 @@ contributions:
     - id: Group2Plugin.nii_reader
       python_name: group2plugin.readers.nii_reader:napari_get_reader
       title: Open data with napari FooBar
+    - id: Group2Plugin.image_foresting_transform
+      python_name: group2plugin.ift.ift_gui:segment_by_seed_competition
+      title: Image Foresting Transform
   widgets:
     - command: Group2Plugin.make_qwidget
       display_name: Example QWidget
@@ -27,6 +30,9 @@ contributions:
       display_name: Example Function Widget
     - command: Group2Plugin.threshold
       display_name: Simple Threshold
+      autogenerate: false
+    - command: Group2Plugin.image_foresting_transform
+      display_name: Image Foresting Transform
       autogenerate: false
   readers:
     - command: Group2Plugin.nii_reader
